@@ -1,0 +1,2 @@
+In this course, Working with Audio and Video in Web Pages, you’ll learn to integrate media (audio and video) onto web pages. First, you’ll explore how to use HTML tags to share audio and video with your users. Next, you’ll discover the options for hosting of your media. Finally, you’ll learn how to control media by using JavaScript in the browser. When you’re finished with this course, you’ll have the skills and knowledge of working with audio and video on your websites needed to embed media in your projects
+
