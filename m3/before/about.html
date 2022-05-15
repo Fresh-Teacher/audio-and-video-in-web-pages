@@ -47,13 +47,12 @@
       text-decoration: none;
       font-weight: bold;
     }
-
+    
     #leftmenu {
       float: left;
       width: 30%;
       margin-bottom: 20px;
     }
-
     #main {
       float: right;
       width: 70%;
@@ -79,6 +78,9 @@
       width: 100%;
     }
   </style>
+
+  <!-- Shim for Media -->
+  <script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
 </head>
 
 <body>
@@ -105,7 +107,6 @@
         <li><a href="fruitpies.html">Fruit pies</a></li>
         <li><a href="seasonalpies.html">Seasonal pies</a></li>
       </ul>
-
       <input type="search" class="searchbox" placeholder="Search our store" />
     </aside>
     <main id="main">
@@ -113,18 +114,39 @@
         <header>
           <h1 style="font-size:35px;color:#a593c2">Welcome to Bethany's Pie Shop</h1>
         </header>
-
+        
         <p>In the video below, you can see how we decorate our mini-cupcakes.</p>
+        <video id="theVideo" controls>
+          <source src="media/baking.mp4" type="video/mp4"/>
+          <source src="media/baking.wem" type="video/webm"/>
+          <track label="English" kind="subtitles" src="media/baking.vtt" srclang="en" default />
+                    <track label="Spanish" kind="subtitles" src="media/baking-es.vtt" srclang="es" />
 
-        <video src="media/baking.mp4" controls autoplay>
           Your browser doesn't support Video
         </video>
 
-        <audio src="media/breadsandcake.mp3" controls autoplay>
+<div>
+  <button id="playButton">Play</button>
+  <button id="pauseButton">Pause</button>
+  <button id="stopButton">Stop</button>
+</div>
+
+<div>
+  Current position: <span id="timeDisplay"></span> sec.
+</div>
+
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/jl7Jg7ZThkk" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe> -->
+        <audio controls>
+          <source src="media/breadsandcake.wav" type="audio/wav" />
+          <source src="media/breadsandcake.mp3" type="audio/mp3" />
+          <source src="media/breadsandcake.ogg" type="audio/ogg" /> 
           Your browser doesn't support audio
         </audio>
       </article>
-    </main>
+    </main> 
 
     <footer>
       <p>Our address is <address>Bethany's Pie Shop - Bakery Street 555 Brussels Belgium</address>
@@ -135,4 +157,33 @@
     </footer>
   </div>
 </body>
+<script type="text/javascript">
+let playButton = document.getElementById("playButton");
+let pauseButton = document.getElementById("pauseButton");
+let stopButton = document.getElementById("stopButton");
+let theVideo = document.getElementById("theVideo");
+let timeDisplay = document.getElementById("timeDisplay");
+
+theVideo.addEventListener("ended", function (){
+theVideo.currentTime = 0;
+});
+
+
+thevideo.addEventListener("timeupdate" , function (){
+timeDisplay.innerText = theVideo.currentTime;
+});
+
+playButton.addEventListener("click", function() {
+theVideo.play();
+});
+
+pauseButton.addEventListener("click", function() {
+theVideo.pause();
+});
+
+stopButton.addEventListener("click", function() {
+theVideo.pause();
+theVideo.currentTime = 0;
+});
+</script>
 </html>
